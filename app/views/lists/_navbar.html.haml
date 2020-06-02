@@ -1,0 +1,13 @@
+%nav.navbar.is-dark{:role => 'navigation', :aria-label => 'main navigation'}
+  .navbar-brand
+  .navbar-menu
+    .navbar-start
+      .navbar-item.title
+        = link_to 'TO DO_List', root_url
+    .navbar-end
+      .navbar-item
+        .field.is-grouped
+          .control.is-expanded
+            %input.input{:type => 'text', :placeholder => 'Create New Event'}
+          .control
+            .button.is-info Create

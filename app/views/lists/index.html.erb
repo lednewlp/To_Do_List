@@ -1,29 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lists</h1>
+<section class= 'hero'>
+  <div class='hero-body'>
+    <div class='container'>
+      <table class='table is-bordered, is-hoverable, is-fullwidth'>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Completed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @lists.each do |list| %>
-      <tr>
-        <td><%= list.description %></td>
-        <td><%= list.completed %></td>
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @lists.each do |list| %>
 
-<br>
+
+            <% if list.completed %>
+              <tr class= 'table is-striped'>
+                <td><%= list.description %></td>
+                <td><%= list.completed %></td>
+                <td><%= link_to 'Show', list %></td>
+                <td><%= link_to 'Edit', edit_list_path(list) %></td>
+                <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% else %>
+              <tr>
+                <td><%= list.description %></td>
+                <td><%= list.completed %></td>
+                <td><%= link_to 'Show', list %></td>
+                <td><%= link_to 'Edit', edit_list_path(list) %></td>
+                <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
 
 <%= link_to 'New List', new_list_path %>
+    </div>
+  </div>
+</section>
