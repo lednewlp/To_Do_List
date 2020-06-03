@@ -1,18 +1,14 @@
-%nav.navbar.is-dark{:role => 'navigation', :aria-label => 'main navigation'}
+%nav.navbar.is-dark
   .navbar-brand
+    = link_to root_url, class: 'navbar-item' do
+      .title.is-4.has-text-white To DO List
+
   .navbar-menu
-    .navbar-item
-      %a.navbar-burger.burger{:data-target => 'navbar', :role => 'button', :arial-label => 'menu', :arial-expanded => 'false'}
-        %span{:arial-hidden => 'true'}
-        %span{:arial-hidden => 'true'}
-        %span{:arial-hidden => 'true'}
-    .navbar-start
-      .navbar-item.title
-        = link_to 'TO DO_List', root_url
     .navbar-end
       .navbar-item
-        .field.is-grouped
-          .control.is-expanded
-            %input.input{:type => 'text', :placeholder => 'Create New Event'}
-          .control
-            .button.is-info Create
+        = form_for(@list) do |f|
+          .field.has-addons
+            .control
+              = f.text_field :description, :class => 'input'
+            .control
+              = f.submit 'Add Todo Item', class: 'button is-info'
