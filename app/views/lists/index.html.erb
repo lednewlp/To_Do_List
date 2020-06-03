@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <section class= 'hero'>
   <div class='hero-body'>
     <div class='container'>
@@ -11,19 +9,31 @@
 
 
             <% if list.completed %>
-              <tr class= 'table is-striped'>
-                <td><%= list.description %></td>
-                <td><%= list.completed %></td>
-                <td><%= link_to 'Show', list %></td>
-                <td><%= link_to 'Edit', edit_list_path(list) %></td>
+              <tr class= 'table is-striped,'>
+                <td class='striker'><%= link_to list.description, edit_list_path(list) %></td>
+                <td>
+                  <center>
+                    <%= form_for(list) do |f| %>
+                    <%= f.text_field :description, type: 'hidden' %>
+                    <%= f.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
+                    <%= f.submit "Uncross", class: 'is-danger is-outlined is-large' %>
+                    <% end %>
+                  </center>
+                </td>
                 <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% else %>
               <tr>
-                <td><%= list.description %></td>
-                <td><%= list.completed %></td>
-                <td><%= link_to 'Show', list %></td>
-                <td><%= link_to 'Edit', edit_list_path(list) %></td>
+                <td><%= link_to list.description, edit_list_path(list) %></td>
+                <td>
+                  <center>
+                    <%= form_for(list) do |f| %>
+                    <%= f.text_field :description, type: 'hidden' %>
+                    <%= f.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
+                    <%= f.submit "Cross", class: 'is-outlined is-large' %>
+                    <% end %>
+                  </center>
+                </td>
                 <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>

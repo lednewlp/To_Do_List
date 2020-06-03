@@ -1,6 +1,11 @@
 %nav.navbar.is-dark{:role => 'navigation', :aria-label => 'main navigation'}
   .navbar-brand
   .navbar-menu
+    .navbar-item
+      %a.navbar-burger.burger{:data-target => 'navbar', :role => 'button', :arial-label => 'menu', :arial-expanded => 'false'}
+        %span{:arial-hidden => 'true'}
+        %span{:arial-hidden => 'true'}
+        %span{:arial-hidden => 'true'}
     .navbar-start
       .navbar-item.title
         = link_to 'TO DO_List', root_url

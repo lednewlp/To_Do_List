@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ $link: #444;
+ $link-hover: rgb(0, 95, 194);
  @import 'bulma/bulma';
 
 
@@ -24,3 +26,16 @@
     }
   }
 };
+
+.striker {
+  text-decoration: line-through;
+  text-decoration-color: $red;
+};
+
+.notification {
+  border-radius: 0;
+}
+
+.notification:not(:last-child) {
+  margin-bottom: 0;
+}
